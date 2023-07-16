@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./ANLib/Styles/uiElements.css">
+    <link rel="stylesheet" href="./ANLib/Styles/flexLibrary.css">
+    <script src="./ANLib/Scripts/uiElements.js" defer></script>
+    <script src="./script.js" defer></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body{
+            min-width: 100vw;
+            height: 100vh;
+        }
+        h1,h2,h3,h4,h5,h6,p,button,input{
+            z-index: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            color: white;
+        }
+
+        .root{
+            width: 100%;
+            height: 100%;
+
+            background: #42275a;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(30deg, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(30deg, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+            padding-top: calc(10vh); /* Use viewport width to calculate the padding-top value */
+        }
+        .root div{
+            width: 640px;
+        }
+        .header{
+            font-size: 44px;
+            text-shadow: 0px 0px 16px rgba(0,0,0, 1);
+        }
+        .curTask{
+            right: 24px;
+            text-align: right;
+            text-shadow: 0px 0px 16px rgba(0,0,0, 1);
+        }
+        .timeProgress{
+            width: 640px;
+            height: 16px;
+
+            border-radius: 16px;
+            background-color: aqua;
+            opacity: 0.84;
+
+            transform: scaleX(1);
+        }
+        input{
+            width: 414px;
+            height: 36px;
+
+            margin-top: 128px;
+            font-size: 36px;
+
+            border: 0;
+            background: none;
+            border-bottom: 1px solid rgba(255,255,255, 0.5);
+            outline: 0px solid rgba(36,36,36, 0.88);
+            border-radius: 1px;
+            text-align: center;
+        }
+        input::placeholder{
+            color: rgba(255,255,255, 0.5);
+            font-style: italic;
+            text-align: start;
+        }
+
+
+
+        @media (max-width: 1023px) {
+            .root .timeProgress{
+                width: 90px;
+            }
+            .root .posRel .curTask{
+                left: 0;
+                right: 0;
+                bottom: 76px;
+                text-align: center !important;
+            }
+
+            input{
+                width: 90%;
+                font-size: 28px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="root fd fd_ai_center">
+        <div class="fd fd_row fd_jc_center posRel">
+            <p class="header">Turn on JavaScript, ShaBi!</p>
+            <p class="curTask posAbs" style="right: 24px;"> Task: 1 / 20</p>
+        </div>
+        <div class="timeProgress"></div>
+
+        <input placeholder="Bid your answer, Baobei">
+    </div>
+</body>
+</html>
