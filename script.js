@@ -2,6 +2,7 @@ const _header = document.querySelectorAll('p')[0];
 const _curTask = document.querySelectorAll('p')[1];
 const _answerInput = document.querySelector('input');
 let currentTask = Number(0);
+let tasksAnswered = Number(0);
 const maxTasks = 20;
 
 
@@ -22,11 +23,34 @@ function InitializeNewIssue()
 
 function CheckAnswerCorrectness()
 {
-    const answer = eval( _header.innerHTML.toLocaleLowerCase() );
+    const realAnswer = eval( _header.innerHTML.toLocaleLowerCase() );
+    const userAnswer = _answerInput.value;
 
+    if(userAnswer == realAnswer)
+    {
+        tasksAnswered = Number(tasksAnswered) + Number(1);
+    }
 
     InitializeNewIssue();
-    return answer;
 }
 
+
+
+function AddListeners()
+{
+    _answerInput.addEventListener("blur", function() {
+        CheckAnswerCorrectness();
+    });
+    _answerInput.addEventListener("keyup", function(event) {
+        if (event.key === "Enter" || event.keyCode === 13) {
+            // Check if the input field is currently focused
+            if (document.activeElement === _answerInput) {
+                alert("Entered");
+            }
+        }
+    });
+}
+
+// Execute
 InitializeNewIssue();
+AddListeners();
